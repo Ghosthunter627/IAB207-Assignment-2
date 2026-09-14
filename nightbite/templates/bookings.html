@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>My Bookings | NIGHTBITE</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark nightbite-navbar sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand nightbite-logo" href="{{ url_for('main.index') }}">
+                NIGHT<span>BITE</span>
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavigation"
+                aria-controls="mainNavigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNavigation">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.index') }}">
+                            Discover
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('main.create_event') }}">
+                            Create Event
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('main.bookings') }}">
+                            My Bookings
+                        </a>
+                    </li>
+
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-nightbite-outline" href="{{ url_for('auth.login') }}">
+                            Sign In
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Header -->
+    <header class="page-header booking-page-header">
+
+        <div class="container">
+
+            <p class="section-kicker">Your NIGHTBITE plans</p>
+
+            <h1>My bookings</h1>
+
+            <p>
+                Keep track of the food events you've booked and find
+                the details you need before your next night out.
+            </p>
+
+        </div>
+
+    </header>
+
+
+    <main class="bookings-page">
+
+        <div class="container">
+
+            <!-- Summary -->
+            <div class="booking-summary">
+
+                <div>
+                    <span class="summary-number">3</span>
+                    <span class="summary-label">Total bookings</span>
+                </div>
+
+                <div>
+                    <span class="summary-number">5</span>
+                    <span class="summary-label">Tickets booked</span>
+                </div>
+
+                <div>
+                    <span class="summary-number">2</span>
+                    <span class="summary-label">Upcoming events</span>
+                </div>
+
+            </div>
+
+
+            <!-- Section Heading -->
+            <div class="section-heading booking-heading">
+
+                <div>
+                    <p class="section-kicker">Booking history</p>
+                    <h2>Your events</h2>
+                </div>
+
+                <a href="{{ url_for('main.index') }}" class="text-link">
+                    Discover more events
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+
+            <!-- Booking 1 -->
+            <article class="booking-card">
+
+                <div class="row g-0 align-items-stretch">
+
+                    <div class="col-md-4 col-lg-3">
+
+                        <img
+                            src="{{ url_for('static', filename='img/night-market.jpeg') }}"
+                            class="booking-image"
+                            alt="Riverside Night Bites">
+
+                    </div>
+
+
+                    <div class="col-md-8 col-lg-9">
+
+                        <div class="booking-content">
+
+                            <div class="booking-top-row">
+
+                                <div>
+
+                                    <span class="status-badge-inline status-open">
+                                        Upcoming
+                                    </span>
+
+                                    <h3>Riverside Night Bites</h3>
+
+                                </div>
+
+
+                                <a href="{{ url_for('main.event') }}"
+                                   class="btn btn-event">
+                                    View Event
+                                </a>
+
+                            </div>
+
+
+                            <div class="booking-details-grid">
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-receipt"></i>
+
+                                    <div>
+                                        <span>Booking ID</span>
+                                        <strong>NB-10482</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-ticket-perforated"></i>
+
+                                    <div>
+                                        <span>Tickets</span>
+                                        <strong>2 tickets</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-calendar-check"></i>
+
+                                    <div>
+                                        <span>Event date</span>
+                                        <strong>12 Sep 2026</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-clock-history"></i>
+
+                                    <div>
+                                        <span>Booked</span>
+                                        <strong>2 Sep 2026, 7:42 PM</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Booking 2 -->
+            <article class="booking-card">
+
+                <div class="row g-0 align-items-stretch">
+
+                    <div class="col-md-4 col-lg-3">
+
+                        <img
+                            src="{{ url_for('static', filename='img/cultural-food.jpg') }}"
+                            class="booking-image"
+                            alt="Taste of Asia After Dark">
+
+                    </div>
+
+
+                    <div class="col-md-8 col-lg-9">
+
+                        <div class="booking-content">
+
+                            <div class="booking-top-row">
+
+                                <div>
+
+                                    <span class="status-badge-inline status-open">
+                                        Upcoming
+                                    </span>
+
+                                    <h3>Taste of Asia After Dark</h3>
+
+                                </div>
+
+
+                                <a href="{{ url_for('main.event') }}"
+                                   class="btn btn-event">
+                                    View Event
+                                </a>
+
+                            </div>
+
+
+                            <div class="booking-details-grid">
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-receipt"></i>
+
+                                    <div>
+                                        <span>Booking ID</span>
+                                        <strong>NB-10341</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-ticket-perforated"></i>
+
+                                    <div>
+                                        <span>Tickets</span>
+                                        <strong>2 tickets</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-calendar-check"></i>
+
+                                    <div>
+                                        <span>Event date</span>
+                                        <strong>26 Sep 2026</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-clock-history"></i>
+
+                                    <div>
+                                        <span>Booked</span>
+                                        <strong>28 Aug 2026, 6:18 PM</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Booking 3 -->
+            <article class="booking-card">
+
+                <div class="row g-0 align-items-stretch">
+
+                    <div class="col-md-4 col-lg-3">
+
+                        <img
+                            src="{{ url_for('static', filename='img/dessert.jpeg') }}"
+                            class="booking-image"
+                            alt="Midnight Dessert Club">
+
+                    </div>
+
+
+                    <div class="col-md-8 col-lg-9">
+
+                        <div class="booking-content">
+
+                            <div class="booking-top-row">
+
+                                <div>
+
+                                    <span class="status-badge-inline status-inactive">
+                                        Past Event
+                                    </span>
+
+                                    <h3>Midnight Dessert Club</h3>
+
+                                </div>
+
+
+                                <a href="{{ url_for('main.event') }}"
+                                   class="btn btn-event">
+                                    View Event
+                                </a>
+
+                            </div>
+
+
+                            <div class="booking-details-grid">
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-receipt"></i>
+
+                                    <div>
+                                        <span>Booking ID</span>
+                                        <strong>NB-09716</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-ticket-perforated"></i>
+
+                                    <div>
+                                        <span>Tickets</span>
+                                        <strong>1 ticket</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-calendar-check"></i>
+
+                                    <div>
+                                        <span>Event date</span>
+                                        <strong>15 Aug 2026</strong>
+                                    </div>
+                                </div>
+
+
+                                <div class="booking-detail">
+                                    <i class="bi bi-clock-history"></i>
+
+                                    <div>
+                                        <span>Booked</span>
+                                        <strong>5 Aug 2026, 8:03 PM</strong>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Browse CTA -->
+            <div class="booking-cta">
+
+                <div>
+                    <i class="bi bi-stars"></i>
+
+                    <h2>Ready for your next bite?</h2>
+
+                    <p>
+                        Discover more night markets, pop-ups and food events happening across Brisbane.
+                    </p>
+                </div>
+
+                <a href="{{ url_for('main.index') }}" class="btn btn-nightbite btn-lg">
+                    Explore Events
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="nightbite-footer">
+
+        <div class="container">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-5">
+
+                    <a class="nightbite-logo footer-logo"
+                       href="{{ url_for('main.index') }}">
+                        NIGHT<span>BITE</span>
+                    </a>
+
+                    <p class="footer-description">
+                        Discover Brisbane's best food events,
+                        markets and after-dark dining experiences.
+                    </p>
+
+                </div>
+
+                <div class="col-6 col-lg-2 offset-lg-1">
+
+                    <h3>Explore</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('main.index') }}">Discover</a></li>
+                        <li><a href="{{ url_for('main.event') }}">Events</a></li>
+                        <li><a href="{{ url_for('main.bookings') }}">My Bookings</a></li>
+                    </ul>
+
+                </div>
+
+                <div class="col-6 col-lg-2">
+
+                    <h3>Host</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('main.create_event') }}">Create Event</a></li>
+                        <li><a href="#">Help Centre</a></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>© 2026 NIGHTBITE</span>
+
+                <span>Brisbane, Queensland</span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+</html>
